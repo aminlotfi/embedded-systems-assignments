@@ -78,51 +78,51 @@
     State current_state = STATE1;
     string input_str;
 
-    while (true) {
-        switch(current_state) {
-            case STATE1:
-                cout << "Current state: state1" << endl;
-                break;
-            case STATE2:
-                cout << "Current state: state2" << endl;
-                break;
-            case STATE3:
-                cout << "Current state: state3" << endl;
-                break;
-            default:
-                cout << "Unknown state!" << endl;
-                return 1;
-        }
-
-        cout << "Enter input (or type 'exit' to quit): "; 
-        cin >> input_str;
-
-        if(input_str == "exit") break;
-
-        Input input = get_input(input_str);
-
-        if(input == INVALID_INPUT) {
-            cout << "Invalid input!" << endl;
-            continue;
-        }
-
-        if(current_state < 0 || current_state >= 3) {
-            cout << "Current state is invalid!" << endl;
-            break;
-        }
-
-        State next_state = transition_table[current_state][input];
-
-        if(next_state == INVALID_STATE) {
-            cout << "Transition not defined for this input in the current state!" << endl;
-        } else {
-            current_state = next_state;
-        }
+      while (true) {
+          switch(current_state) {
+              case STATE1:
+                  cout << "Current state: state1" << endl;
+                  break;
+              case STATE2:
+                  cout << "Current state: state2" << endl;
+                  break;
+              case STATE3:
+                  cout << "Current state: state3" << endl;
+                  break;
+              default:
+                  cout << "Unknown state!" << endl;
+                  return 1;
+          }
+  
+          cout << "Enter input (or type 'exit' to quit): "; 
+          cin >> input_str;
+  
+          if(input_str == "exit") break;
+  
+          Input input = get_input(input_str);
+  
+          if(input == INVALID_INPUT) {
+              cout << "Invalid input!" << endl;
+              continue;
+          }
+  
+          if(current_state < 0 || current_state >= 3) {
+              cout << "Current state is invalid!" << endl;
+              break;
+          }
+  
+          State next_state = transition_table[current_state][input];
+  
+          if(next_state == INVALID_STATE) {
+              cout << "Transition not defined for this input in the current state!" << endl;
+          } else {
+              current_state = next_state;
+          }
+      }
+  
+      cout << "FSM terminated." << endl;
+      return 0;
     }
-
-    cout << "FSM terminated." << endl;
-    return 0;
-}
     ```
 
 ## **۳. آزمایش**
@@ -131,7 +131,7 @@
   ```bash
   g++ -o fsm_program fsm_program.cpp
   ```
-- **اجرای برنامه:** برنامه اجرا شد و انتقال حالات، مدیریت ورودی‌های نامعتبر و خاتمه‌ی نرم‌افزاری آن تأیید شد.
+- **اجرای برنامه**
   ```
   Current state: state1
   Enter input (or 'exit' to quit): input1
